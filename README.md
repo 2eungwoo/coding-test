@@ -15,7 +15,7 @@ a = input()
 ```
 
 ### boj7785
-[회사에 있는 사람](https://github.com/2eungwoo/coding-test/tree/main/%EB%B0%B1%EC%A4%80/Silver/7785.%E2%80%85%ED%9A%8C%EC%82%AC%EC%97%90%E2%80%85%EC%9E%88%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%8C)</br>
+[boj7785](https://github.com/2eungwoo/coding-test/tree/main/%EB%B0%B1%EC%A4%80/Silver/7785.%E2%80%85%ED%9A%8C%EC%82%AC%EC%97%90%E2%80%85%EC%9E%88%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%8C)</br>
 list 쓰면 시간초과 나서 dictionary 쓴 문제
 #### List
 
