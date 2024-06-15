@@ -5,7 +5,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 ### boj7785
 list 쓰면 시간초과 나서 dictionary 쓴 문제
-### List
+#### List
 
 | Index | li[idx] | O(1) |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ list 쓰면 시간초과 나서 dictionary 쓴 문제
 | Delete | li[idx] | O(N) |
 | Remove | li.remove(val) | O(N) |
 
-### Dictionary
+#### Dictionary
 
 | Index | dic[key] | O(1) |
 | --- | --- | --- |
