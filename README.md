@@ -30,7 +30,7 @@ list = list(map(int, input().split()))
 # print 개행없애고 공백 하나씩 넣기
 print(val, end=" ")
 ```
-
+------------------
 ### 입력시간줄이기
 ```python
 import sys
