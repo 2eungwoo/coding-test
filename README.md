@@ -119,6 +119,7 @@ list = []
 for i in range(n+1):
     list.append(i)
 ```
+------------------
 ### swap쉽게하기
 ```python
 swap(a,b) 는
