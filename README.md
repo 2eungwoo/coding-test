@@ -5,6 +5,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 - [백준풀이](#BOJ)
 
 ### [파이썬 익숙해지기](#Python)
+- [입력](#입력)
+- [출력](#출력)
 - [입력 시간 줄이는 꿀팁](#입력시간줄이기)
 - [리스트](#리스트)
   - [내장함수](#내장함수)
@@ -14,6 +16,21 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 # BOJ
 
 # Python
+### 입력
+```python
+n = int(input())
+
+n1, n2 = map(int, input().split())
+
+list = list(map(int, input().split()))
+```
+------------------
+### 출력
+```python
+# print 개행없애고 공백 하나씩 넣기
+print(val, end=" ")
+```
+
 ### 입력시간줄이기
 ```python
 import sys
