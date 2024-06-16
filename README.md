@@ -3,6 +3,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 ### [백준풀이피드백](#백준풀이피드백)
 - [boj10813](#boj10813)
+  - [list 초기 세팅](#배열초기화)
+  - [swap 쉽게하기](#swap쉽게하기)
 
 ### [파이썬 익숙해지기](#Python)
 - [입력](#입력)
@@ -15,7 +17,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 # 백준풀이피드백
 ### boj10813
-배열 초기화 
+#### 배열초기화 
 ```python
 # 리스트를 빈 값으로 초기화하고 동적으로 할당하면 안됨
 list = []
@@ -39,7 +41,7 @@ list = []
 for i in range(n+1):
     list.append(i)
 ```
-swap 쉽게하기
+#### swap쉽게하기
 ```python
 swap(a,b) 는
 a,b = b,a 로 가능
