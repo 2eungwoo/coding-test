@@ -11,9 +11,9 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
   - [내장메서드](#내장메서드) 
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
 
-## BOJ
+# BOJ
 
-## Python
+# Python
 ### 입력시간줄이기
 ```python
 import sys
@@ -23,6 +23,7 @@ input = sys.stdin.readline
 
 a = input()
 ```
+------------------
 
 ### 리스트vs딕셔너리
 #### List
@@ -42,20 +43,22 @@ a = input()
 | Pop | dic.pop(key) | O(1) |
 | Delete | del dic[key] | O(1) |
 
+------------------
+
 ### 리스트
 파이썬은 다른 언어들과 다르게 반대방향으로의 indexing 가능</br>
 요소가 6개인 리스트에서,</br>
 정방향 : 인덱스 5까지 </br>
 역방향 : 인덱스 -6까지 ( li[-6] == li[0] )</br>
 
-### 내장함수
+#### 내장함수
 ```python
 len(list)
 max(list
 min(list)
 list(tup)
 ```
-### 내장메서드
+#### 내장메서드
 ```python
 list.append(val) : 리스트 끝에 1개 요소(val) 추가
 list.extend(li2) : 리스트 끝에 다른 리스트(li2) 붙이기
