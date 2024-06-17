@@ -34,6 +34,11 @@ list = list(map(int, input().split()))
 # print 개행없애고 공백 하나씩 넣기
 print(val, end=" ")
 ```
+```python
+# list안의 요소 한줄로 출력하기
+list = [1,2,3,4,5]
+print(*list)
+```
 ------------------
 ### 입력시간줄이기
 ```python
