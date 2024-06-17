@@ -14,6 +14,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
 - [list 초기 세팅](#배열초기화)
 - [swap 쉽게하기](#swap쉽게하기)
+- [pass,exit](#pass,exit)
 
 # 백준풀이피드백
 ### boj12345
@@ -124,5 +125,27 @@ for i in range(n+1):
 ```python
 swap(a,b) 는
 a,b = b,a 로 가능
+```
+------------------
+### pass,exit
+pass
+```python
+for i in range(1,5):
+  if(i==3):
+    pass
+  print(i)
+
+# 1 2 3 4 5
+```
+
+exit
+```python
+for i in range(1,5):
+  if(i==3):
+    exit()
+  print(i)
+print("abc")
+
+# 1 2
 ```
 ------------------
