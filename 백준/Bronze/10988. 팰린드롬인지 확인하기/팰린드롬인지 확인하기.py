@@ -15,7 +15,7 @@ for i in range(len(word)):
         continue
     else:
         print(0)
-        exit(0)
+        exit()
 print(1)
 
 # ver3
