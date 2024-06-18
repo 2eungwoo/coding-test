@@ -41,7 +41,7 @@ print(*list)
 ```
 ```python
 # 소수점 n번째 자리까지 출력
-print(format(result,''.nf'))
+print(format(result,'.nf'))
 ```
 ------------------
 ### 입력시간줄이기
