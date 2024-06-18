@@ -125,6 +125,10 @@ list = []
 for i in range(n+1):
     list.append(i)
 ```
+```python
+# list를 [1,2,3,4...,n] 으로 쉽게 초기화해주는 방법
+list = [x for x in range(1,n+1)]
+```
 ------------------
 ### swap쉽게하기
 ```python
