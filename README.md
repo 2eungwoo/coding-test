@@ -84,7 +84,7 @@ a = input()
 #### 내장함수
 ```python
 len(list)
-max(list
+max(list)
 min(list)
 list(tup)
 ```
