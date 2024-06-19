@@ -12,7 +12,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
   - [내장함수](#내장함수)
   - [내장메서드](#내장메서드) 
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
-- [list 초기 세팅](#배열초기화)
+- [list 초기 세팅](#리스트초기세팅)
 - [swap 쉽게하기](#swap쉽게하기)
 - [pass,exit](#pass,exit)
 
@@ -105,7 +105,7 @@ list.sort() : 리스트 정렬
   
 ```
 ------------------
-### 배열초기화 
+### 리스트초기세팅 
 ```python
 # 리스트를 빈 값으로 초기화하고 동적으로 할당하면 안됨
 list = []
@@ -132,6 +132,15 @@ for i in range(n+1):
 ```python
 # list를 [1,2,3,4...,n] 으로 쉽게 초기화해주는 방법
 list = [x for x in range(1,n+1)]
+```
+```
+# 2차원 배열 만들기 
+# ex) n개 줄, 원소 m개 
+m = [[0 for col in range(m)] for row in range(n)]
+
+# 입력으로 값 채워넣기
+for i in range(n):
+    m[i] = list(map(int, input().split()))
 ```
 ------------------
 ### swap쉽게하기
