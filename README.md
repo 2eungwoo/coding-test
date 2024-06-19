@@ -119,7 +119,7 @@ for i in range(n+1):
 list = [None] * (n+1)
 
 for i in range(n+1):
-    list[i] = i # error
+    list[i] = i
 ```
 
 ```python
