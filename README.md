@@ -1,5 +1,5 @@
 # coding-test
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+[![Solved.ac Profile](http://mazassumnida.wtf/api/mini/generate_badge?boj=swo98)](https://solved.ac/swo98)
 
 ### [백준풀이피드백](#백준풀이피드백)
 - [boj12345](#boj12345)
