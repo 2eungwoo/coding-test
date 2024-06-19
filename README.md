@@ -158,6 +158,8 @@ for i in range(1,5):
   print(i)
 
 # 1 2 3 4 5
+
+# continue 였으면 1 2 4 5 인거랑 다른거 기억
 ```
 
 exit
