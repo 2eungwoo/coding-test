@@ -140,7 +140,7 @@ m = [[0 for col in range(m)] for row in range(n)]
 for i in range(n):
     m[i] = list(map(int, input().split()))
 ```
-### 주의하상
+### 주의사항
 ```python
 # 배열에 원소 추가할 때 인덱스로 접근하기
 # 배열에 원소를 추가하면 보통 빈 배열을 만들고 append 로 추가할 때가 많은데,
