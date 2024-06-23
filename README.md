@@ -13,8 +13,10 @@
   - [내장메서드](#내장메서드) 
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
 - [list 초기 세팅](#리스트초기세팅)
+  - [list 입력 주의사항)(#주의사항)
 - [swap 쉽게하기](#swap쉽게하기)
 - [pass,exit](#pass,exit)
+- [round](#round)
 
 # 백준풀이피드백
 ### boj12345
@@ -27,6 +29,12 @@ n = int(input())
 n1, n2 = map(int, input().split())
 
 list = list(map(int, input().split()))
+```
+```python
+# sys.stdin.readline()로 입력받기 -> 입력 시간초과 방지
+
+import sys 
+변수 = sys.stdin.readline()
 ```
 ------------------
 ### 출력
@@ -42,16 +50,6 @@ print(*list)
 ```python
 # 소수점 n번째 자리까지 출력
 print(format(result,'.nf'))
-```
-------------------
-### 입력시간줄이기
-```python
-import sys
-input = sys.stdin.readline
-
-...
-
-a = input()
 ```
 ------------------
 
@@ -142,6 +140,23 @@ m = [[0 for col in range(m)] for row in range(n)]
 for i in range(n):
     m[i] = list(map(int, input().split()))
 ```
+### 주의하상
+```python
+# 배열에 원소 추가할 때 인덱스로 접근하기
+# 배열에 원소를 추가하면 보통 빈 배열을 만들고 append 로 추가할 때가 많은데,
+# 입력 받을 개수(N)를 알고있다면 N 만큼 배열을 초기화해두고 인덱스로 각자 접근해서 저장하는 것이 효율이 좋다.
+
+## 7의 배수 10개 저장하기
+# 수정 전
+arr = []
+for num in range(1, 11):
+    arr.append(num * 7)
+    
+# 수정 후
+arr = [0 for _ in range(10)]
+for num in range(1, 11):
+    arr[num] = num * 7
+```
 ------------------
 ### swap쉽게하기
 ```python
@@ -171,5 +186,17 @@ for i in range(1,5):
 print("abc")
 
 # 1 2
+```
+------------------
+### round
+```python
+# python3에서 round함수는 사사오입 원칙을 따른다.
+# 소수점 부분이 정확히 0.5로 나오면, 반올림 할때 앞자리가 홀수면 올림, 짝수면 내림
+
+print(round(5.5))
+# 6
+
+print(round(4.5)) 
+# 4
 ```
 ------------------
