@@ -164,6 +164,9 @@ for num in range(1, 11):
 arr = [0 for _ in range(10)]
 for num in range(1, 11):
     arr[num] = num * 7
+
+# 아니면 이거? (n:10일때)
+arr = [None] * 10
 ```
 ------------------
 ### swap쉽게하기
