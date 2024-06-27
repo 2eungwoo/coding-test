@@ -17,8 +17,8 @@
 - [pass,exit](#pass,exit)
 - [round](#round)
 - [연산자](#연산자)
-- [map함수](#map)
-- [sum함수](#sum)
+- [map함수](#map함수)
+- [sum함수](#sum함수)
 
 # 백준풀이피드백
 ### boj12345
