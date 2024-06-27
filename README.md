@@ -38,6 +38,13 @@ list = list(map(int, input().split()))
 import sys 
 변수 = sys.stdin.readline()
 ```
+```python
+# 리스트 사이즈 n 이 주어지고
+# n 회 값을 입력받아 리스트에 담기
+# ex) n = 4, list = [1,2,3,4]
+n = int(input())
+list = list(map(int,input().split()))
+```
 ------------------
 ### 출력
 ```python
