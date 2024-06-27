@@ -17,6 +17,8 @@
 - [pass,exit](#pass,exit)
 - [round](#round)
 - [연산자](#연산자)
+- [map함수](#map)
+- [sum함수](#sum)
 
 # 백준풀이피드백
 ### boj12345
@@ -216,3 +218,28 @@ print(a/b) # 3.3333333333333335
 print(a//b) # 3
 ```
 ------------------
+### map함수
+```python
+# 각 자리수 쉽게 더하기 (n:int)
+# sum함수 , map함수
+
+n = int(input())
+result = sum(map(int,str(n1)))
+
+str = input()
+result2 = sum(map(int,str))
+```
+------------------
+### sum함수
+```python
+list = [1,2,3,4,5]
+
+sum1 = 0
+for i in range(len(list)):
+    sum1 += list[i]
+
+# sum함수
+sum2 = sum(list)
+
+print(sum1,sum2)
+```
