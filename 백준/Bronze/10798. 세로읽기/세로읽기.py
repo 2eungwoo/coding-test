@@ -1,10 +1,9 @@
-list = [''] * 5
+str = [''] * 5
 
 for i in range(5):
-    list[i] = input()
+    str[i] = input()
     
 for i in range(15):
     for j in range(5):
-        if(i<len(list[j]) and list[j][i] != '\0'):
-            print(list[j][i],end="")
-        
+        if(i<len(str[j])):
+            print(str[j][i],end="")
