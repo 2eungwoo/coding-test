@@ -44,9 +44,11 @@ import sys
 ```python
 # 리스트 사이즈 n 이 주어지고
 # n 회 값을 입력받아 리스트에 담기
-# ex) n = 4, list = [1,2,3,4]
+# ex) n = 4, 입력 : 1 2 3 4
 n = int(input())
 list = list(map(int,input().split()))
+print(list)
+>> 1 2 3 4
 ```
 ------------------
 ### 출력
@@ -61,9 +63,14 @@ print(*list)
 ```
 ```python
 # list안의 요소 join으로 end처리
-list = [1,2,3,4,5]
+
+list = ['a','b','c']
 print('#'.join(list))
->> 1#2#3#4#5
+>> a#b#c
+
+# join은 문자열 리스트에만 가능
+# 정 쓰고싶으면 다음과 같이 map함수로 str 돌려줘야됨
+print(' '.join(map(str, list)))
 ```
 ```python
 # 소수점 n번째 자리까지 출력
