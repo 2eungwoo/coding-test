@@ -33,15 +33,9 @@ n = int(input())
 
 n1, n2 = map(int, input().split())
 
+# 한 줄로 입력받기
 list = list(map(int, input().split()))
-```
-```python
-# sys.stdin.readline()로 입력받기 -> 입력 시간초과 방지
 
-import sys 
-변수 = sys.stdin.readline()
-```
-```python
 # 리스트 사이즈 n 이 주어지고
 # n 회 값을 입력받아 리스트에 담기
 # ex) n = 4, 입력 : 1 2 3 4
@@ -49,6 +43,12 @@ n = int(input())
 list = list(map(int,input().split()))
 print(list)
 >> 1 2 3 4
+```
+```python
+# sys.stdin.readline()로 입력받기 -> 입력 시간초과 방지
+
+import sys 
+변수 = sys.stdin.readline()
 ```
 ------------------
 ### 출력
