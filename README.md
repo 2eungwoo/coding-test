@@ -59,6 +59,12 @@ list = [1,2,3,4,5]
 print(*list)
 ```
 ```python
+# list안의 요소 join으로 end처리
+list = [1,2,3,4,5]
+print('#'.join(list))
+>> 1#2#3#4#5
+```
+```python
 # 소수점 n번째 자리까지 출력
 print(format(result,'.nf'))
 ```
@@ -186,6 +192,9 @@ a,b = b,a 로 가능
 ------------------
 ### pass,exit
 pass
+```
+파이썬에서 pass는 Null 연산으로 아무것도 하지 않는 기능
+```
 ```python
 for i in range(1,5):
   if(i==3):
@@ -228,6 +237,10 @@ b = 3
 
 print(a/b) # 3.3333333333333335
 print(a//b) # 3
+
+# 몫, 나머지 한번에 구하기
+divmod(5,3)
+>> (1,2)
 ```
 ------------------
 ### map함수
