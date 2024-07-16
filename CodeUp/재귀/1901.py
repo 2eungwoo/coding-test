@@ -1,4 +1,3 @@
-```python
 n = int(input())
 
 def func(n):
@@ -10,4 +9,4 @@ def func(n):
     print(n)
     
 func(n)
-```
+
