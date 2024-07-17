@@ -9,7 +9,9 @@
 - [출력](#출력)
 - [리스트](#리스트)
   - [내장함수](#내장함수)
-  - [내장메서드](#내장메서드) 
+  - [내장메서드](#내장메서드)
+- [딕셔너리](#딕셔너리)
+    - [딕셔너리 모듈](#딕셔너리모듈)
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
 - [list 초기 세팅](#리스트초기세팅)
   - [list 입력 주의사항](#주의사항)
@@ -82,6 +84,45 @@ print(format(result,'.nf'))
 
 print(f"{min}\n{sec}")
 ```
+------------------
+### 딕셔너리
+### 딕셔너리모듈
+#### defaultdict 객체
+```python
+# 존재하지 않는 키를 조회할 경우, 디폴트 값을 기준으로 해당 키에 대한 딕셔너리 아이템을 생성해준다.
+import collections
+a = collections.defaultdict(int)
+a['A'] = 5
+a['B'] = 4
+print(a)
+>>> defaultdict(<class 'int'>, {'A':5,'B':4})
+a['C'] += 3
+print(a)
+>>> defaultdict(<class 'int'>, {'A':5,'B':4,'C':3})
+```
+
+#### Counter 객체
+```python
+# 아이템에 대한 개수를 계산해 딕셔너리로 리턴한다.
+# key에는 아이템의 값, 값에는 해당 아이템의 개수가 들어간 딕셔너리를 생성한다.
+import collections
+
+a = ['a','b','c','c','d','d','d']
+b = collections.Counter(a)
+
+print(b)
+>>> Counter({'d': 3, 'c': 2, 'a': 1, 'b': 1})
+```
+#### 가장 높은 빈도수 요소 추출하기
+```python
+# most_common() 함수 사용
+print(b.most_common())
+>>> [('d', 3), ('c', 2), ('a', 1), ('b', 1)]
+
+b.most_common(n) -> n개를 추출
+b.most_common(1) -> [('d', 3)] 이므로, b.most_common(1)[0][0]으로 최빈값의 key를, b.most_common(1)[0][1]로 최빈값의 값을 추출할 수 있다.
+```
+
 ------------------
 
 ### 리스트vs딕셔너리
