@@ -4,21 +4,33 @@ class Solution:
             .lower().split()
                 if word not in banned]
 
+        # 3rd solve
+        counts = collections.Counter(words)
+        return counts.most_common(1)[0][0]
 
-        words_dic = {}
 
-        for word in words:
-            if word in words_dic:
-                words_dic[word] += 1
-            else:
-                words_dic[word] = 1
-
-        most_word = ''
-        max_count = 0
+        # 2nd solve
+        # counts = collections.defaultdict(int)
+        # for word in words:
+        #     counts[word] += 1
         
-        for word, count in words_dic.items():
-            if(count > max_count):
-                max_count = count
-                most_word = word
+        # return max(counts, key=counts.get)
 
-        return most_word
+        # 1st solve
+        # words_dic = {}
+
+        # for word in words:
+        #     if word in words_dic:
+        #         words_dic[word] += 1
+        #     else:
+        #         words_dic[word] = 1
+
+        # most_word = ''
+        # max_count = 0
+        
+        # for word, count in words_dic.items():
+        #     if(count > max_count):
+        #         max_count = count
+        #         most_word = word
+
+        # return most_word
