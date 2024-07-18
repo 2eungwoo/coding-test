@@ -100,7 +100,12 @@ a['C'] += 3
 print(a)
 >>> defaultdict(<class 'int'>, {'A':5,'B':4,'C':3})
 ```
-
+```python
+defaultdict()에서 괄호 안에는 int, list, set 과 같이 기본 값을 생성하는 함수를 넣는다 (사용자 생성 가능)
+defaultdict(int) : 기본 값이 0인 딕셔너리 생성
+defaultdict(list) : 기본 값이 빈 배열인 딕셔너리 생성
+defaultdict(set) : 기본 값이 빈 집합인 딕셔너리 생성
+```
 #### Counter 객체
 ```python
 # 아이템에 대한 개수를 계산해 딕셔너리로 리턴한다.
