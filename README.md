@@ -84,6 +84,11 @@ print(format(result,'.nf'))
 
 print(f"{min}\n{sec}")
 ```
+```python
+#
+return [*results.values()]
+return list(results.values)
+```
 ------------------
 ### 딕셔너리
 ### 딕셔너리모듈
