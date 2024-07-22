@@ -1,7 +1,7 @@
 # coding-test
 [![Solved.ac Profile](http://mazassumnida.wtf/api/mini/generate_badge?boj=swo98)](https://solved.ac/swo98)
 
-### [백준풀이피드백](#백준풀이피드백)
+### [풀이피드백](#풀이피드백)
 - [boj12345](#boj12345)
 
 ### [파이썬 익숙해지기](#Python)
@@ -26,7 +26,7 @@
 - [입력값 범위에 따른 시간제한 계산](#입력값)
 - [재귀 깊이 설정](#재귀깊이설정)
 
-# 백준풀이피드백
+# 풀이피드백
 ### boj12345
 
 # Python
