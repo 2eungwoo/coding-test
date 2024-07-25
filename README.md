@@ -329,12 +329,13 @@ sum2 = sum(list)
 
 print(sum1,sum2)
 ```
+------------------
 ### 정렬
-#### sort()
+sort()
 ```python
 list.sort(key=None, reverse=False)
 ```
-#### sorted()
+sorted()
 ```python
 sorted(iterable, key=None, reverse=False)
 ```
