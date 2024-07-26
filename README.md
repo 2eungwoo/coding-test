@@ -220,6 +220,9 @@ list = [x for x in range(1,n+1)]
 # ex) n개 줄, 원소 m개 
 m = [[0 for col in range(m)] for row in range(n)]
 
+# 10 by 10 짜리 2차원 배열
+lst = [['#'] * 10 for _ in range(10)]
+
 # 입력으로 값 채워넣기
 for i in range(n):
     m[i] = list(map(int, input().split()))
