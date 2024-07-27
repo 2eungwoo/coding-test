@@ -2,7 +2,7 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         # equation : min(lmax,rmax) - height[i] (i:cur idx)
         # idea : need to know left-side, right-side => two pointer
-
+        
         left, right = 0, len(height) - 1
         lmax, rmax = height[left], height[right]
         water = 0
@@ -22,12 +22,4 @@ class Solution:
 
         return water
 
-
-
-            
-        
-    
-    
-
-        
         
