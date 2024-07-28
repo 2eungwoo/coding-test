@@ -5,7 +5,7 @@ def climb(n, memo):
   if(n == 0):
     memo[0] = 0
     return memo[0]
-  if(n == 1):
+  elif(n == 1):
     memo[1] = 1
     return memo[1]
   elif(n == 2):
