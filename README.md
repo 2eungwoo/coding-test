@@ -106,6 +106,10 @@ print(f"{min}\n{sec}")
 return [*results.values()]
 return list(results.values)
 ```
+```python
+# 대소문자 바꿔서 출력하기
+str.swapcase()
+```
 ------------------
 ### 딕셔너리
 ### 딕셔너리모듈
