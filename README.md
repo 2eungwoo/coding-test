@@ -23,6 +23,7 @@
 - [map함수](#map함수)
 - [sum함수](#sum함수)
 - [sort() vs sorted()](#정렬)
+- [무한대값 지정하기](#무한대값)
 
 ### ETC 
 - [입력값 범위에 따른 시간제한 계산](#입력값)
@@ -370,6 +371,15 @@ list.sort(key=None, reverse=False)
 sorted()
 ```python
 sorted(iterable, key=None, reverse=False)
+```
+------------------
+### 무한대값
+```python
+mx = -sys.maxsize
+mn = sys.maxsize
+
+mx = float('-inf')
+mn = float('inf')
 ```
 | 특징           | `sorted()`                    | `sort()`                  |
 |----------------|-------------------------------|---------------------------|
