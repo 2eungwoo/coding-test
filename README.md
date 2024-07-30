@@ -69,6 +69,16 @@ print(list)
 import sys 
 변수 = sys.stdin.readline()
 ```
+```python
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+for i in range(n):
+    a,b = map(int, input().split())
+    print(a+b)
+
+```
 ------------------
 ### 출력
 ```python
