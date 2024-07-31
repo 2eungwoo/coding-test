@@ -13,6 +13,7 @@
   - [내장메서드](#내장메서드)
 - [딕셔너리](#딕셔너리)
     - [딕셔너리 모듈](#딕셔너리모듈)
+    - [딕셔너리 정렬](#딕셔너리정렬)
 - [리스트, 딕셔너리 주요 시간복잡도 차이](#리스트vs딕셔너리)
 - [list 초기 세팅](#리스트초기세팅)
   - [list 입력 주의사항](#주의사항)
@@ -164,7 +165,52 @@ print(b.most_common())
 b.most_common(n) -> n개를 추출
 b.most_common(1) -> [('d', 3)] 이므로, b.most_common(1)[0][0]으로 최빈값의 key를, b.most_common(1)[0][1]로 최빈값의 값을 추출할 수 있다.
 ```
+------------------
+### 딕셔너리정렬
+#### 1. sorted() 함수와 lambda 함수 사용
+```python
+d = {'apple': 3, 'banana': 2, 'cherry': 1}
 
+# 키를 기준으로 정렬
+sorted_d = sorted(d.items(), key=lambda x: x[0])
+print(sorted_d)
+
+# 값(value)를 기준으로 정렬
+sorted_d = sorted(d.items(), key=lambda x: x[1])
+print(sorted_d)
+
+# 꺼내쓰는법 : 인덱스로 접근
+sorted_d[key_idx][value_idx]
+```
+#### 2. operator 모듈의 itemgetter() 함수를 사용
+```python
+from operator import itemgetter
+
+d = {'apple': 3, 'banana': 2, 'cherry': 1}
+
+# 키를 기준으로 정렬
+sorted_d = sorted(d.items(), key=itemgetter(0))
+print(sorted_d)
+# 위 코드에서, itemgetter() 함수는 (키, 값) 쌍에서 0번째 인덱스에 해당하는 키를 선택하도록 설정
+```
+#### 3. OrderedDict 클래스
+```python
+from collections import OrderedDict
+
+d = {'apple': 3, 'banana': 2, 'cherry': 1}
+
+# 키를 기준으로 정렬된 OrderedDict 객체 생성
+sorted_d = OrderedDict(sorted(d.items(), key=lambda x: x[0]))
+print(sorted_d)
+
+# 값(value)를 기준으로 정렬된 OrderedDict 객체 생성
+sorted_d = OrderedDict(sorted(d.items(), key=lambda x: x[1]))
+print(sorted_d)
+
+# 꺼내쓰는 법 : 리스트로 감싼 뒤 인덱스로 접근
+third_key = list(sorted_d.keys())[2]
+second_value = list(sorted_d.values())[1]
+```
 ------------------
 
 ### 리스트vs딕셔너리
