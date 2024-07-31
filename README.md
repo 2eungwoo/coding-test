@@ -29,6 +29,7 @@
 ### ETC 
 - [입력값 범위에 따른 시간제한 계산](#입력값)
 - [재귀 깊이 설정](#재귀깊이설정)
+- [다중 할당 주의](#다중할당주의)
 
 # 풀이피드백
 ### boj12345
@@ -459,4 +460,15 @@ mn = float('inf')
 ```python
 import sys
 sys.setrecursionlimit(10**7)
+```
+------------------
+### 다중할당주의
+```python
+# 파이썬에는 원시타입이 존재하지 않기 때문에 = 연산자는 값의 할당이 아니라 불변 객체에 대한 참조를 할당하게 된다.
+rev, rev.next = slow, rev
+slow = slow.next
+
+# rev는 slow를 참조, rev.next는 rev를 참조하기 때문에 slow, rev가 동일참조가 된다.
+# 따라서 rev, rev.next, slow = slow, rev, slow.next 로 한 줄에 다중 할당 하지 않으면 생각하지 못한 버그가 발생한다.
+# 다중 할당을 하게 되면 할당 과정이 한 번의 트랜잭션으로 끝나게 된다.
 ```
