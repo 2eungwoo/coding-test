@@ -16,8 +16,8 @@ class Solution:
             q.append(node.val)
             node = node.next
         
-        for i in range(len(q)):
-            if(q[i] == q[-i-1]):
-                continue
-            return False
+        while(len(q) > 1):
+            if(q.popleft() != q.pop()):
+                return False
+
         return True
