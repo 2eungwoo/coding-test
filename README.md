@@ -211,6 +211,11 @@ print(sorted_d)
 third_key = list(sorted_d.keys())[2]
 second_value = list(sorted_d.values())[1]
 ```
+```python
+# item => {key:value} 한 쌍
+# key => key
+# value => value
+```
 ------------------
 
 ### 리스트vs딕셔너리
