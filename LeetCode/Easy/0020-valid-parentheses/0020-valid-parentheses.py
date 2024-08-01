@@ -16,5 +16,3 @@ class Solution:
                 
         if(len(stack) == 0):
             return True
-        
-    
