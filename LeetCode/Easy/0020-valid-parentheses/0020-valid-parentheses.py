@@ -14,6 +14,7 @@ class Solution:
             elif not stack or pair[c] != stack.pop():
                 return False
                 
-        return True
+        if(len(stack) == 0):
+            return True
         
     
