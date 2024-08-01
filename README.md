@@ -11,6 +11,7 @@
 - [리스트](#리스트)
   - [내장함수](#내장함수)
   - [내장메서드](#내장메서드)
+  - [리스트를 단일값으로](#join메서드)
 - [딕셔너리](#딕셔너리)
     - [딕셔너리 모듈](#딕셔너리모듈)
     - [딕셔너리 정렬](#딕셔너리정렬)
@@ -269,6 +270,24 @@ list.sort() : 리스트 정렬
   default = ascending
   list.sort(reverse = True) : descending
   
+```
+### join메서드
+------------------
+```python
+## 숫자배열 -> 단일값
+a = [1,2,3,4,5]
+# res = ''.join(a) # error
+res = ''.join(map(str,a))
+res2 = int(''.join(map(str,a)))
+print(res, res2)
+>>> 12345 (type:<class 'str'>)
+>>> 12345 (type:<class 'int'>)
+
+## 문자배열 -> 단일값
+b = ['a','b','c']
+res3 = ''.join(b)
+print(res3)
+>>> abc
 ```
 ------------------
 ### 리스트초기세팅 
