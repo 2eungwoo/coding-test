@@ -1,4 +1,4 @@
-<h1 align="center">coding-test</h1>
+<h1 align="center">🍞 ps practice</h1>
 
 <p align="center">
   <a href="https://solved.ac/swo98">
