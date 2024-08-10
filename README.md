@@ -1,16 +1,12 @@
 <h1 align="center">🍞 ps practice</h1>
 
 <p align="center">
-  <a href="https://solved.ac/swo98">
-    <img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=swo98" alt="Solved.ac Profile"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" alt="Python">
-    
-  </a>
+  <img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=swo98" alt="Solved.ac Profile" width="130" height="auto"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" alt="Python" width="80"/>
 </p>
 
 
-
-<h4 align="center">입력값 범위에 따른 시간복잡도</h4>
+<h3 align="center">입력값 범위에 따른 시간복잡도</h3>
 
 <div align="center">
 
