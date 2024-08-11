@@ -7,7 +7,21 @@
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" alt="Python" width="80"/>
 </p>
 
-
+<!--
+<div align="center">
+  <details>
+    <summary>boj stats </summary>
+    <a href="https://solved.ac/profile/swo98">
+      <img src="http://mazassumnida.wtf/api/generate_badge?boj=swo98" alt="Solved.ac 프로필"/>
+    </a>
+  </details>
+  <details>
+    <summary>leetcode stats </summary>
+    <br>
+    <img src="https://leetcard.jacoblin.cool/swo98?theme=unicorn&font=Baloo%202" alt="LeetCode Stats"/>
+  </details>
+</div>
+-->
 
 <h3 align="center">입력값 범위에 따른 시간복잡도</h3>
 
