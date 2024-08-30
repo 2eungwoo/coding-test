@@ -11,4 +11,3 @@ class Solution:
             res.append(sorted_items[i][0])
         
         return res
-
