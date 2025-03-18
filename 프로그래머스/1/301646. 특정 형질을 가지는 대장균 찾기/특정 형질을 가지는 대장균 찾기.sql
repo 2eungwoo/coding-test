@@ -1,0 +1,9 @@
+-- 코드를 작성해주세요
+# 1번 1
+# 2번 2
+# 3번 4
+# 4번 8
+SELECT COUNT(*) AS COUNT
+FROM ECOLI_DATA
+WHERE GENOTYPE & 2 = 0
+    AND (GENOTYPE & 1 = 1 OR GENOTYPE & 4 = 4)
