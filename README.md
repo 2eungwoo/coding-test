@@ -38,17 +38,3 @@
 | N ≤ 1,000,000 | O(NlogN) |
 | N ≤ 10,000,000 | O(N) |
 | 그 이상 | O(logN), O(1) |
-
-</div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## String
-|  |
-| ------- |
-| [0014-longest-common-prefix](https://github.com/2eungwoo/coding-test/tree/master/0014-longest-common-prefix) |
-## Trie
-|  |
-| ------- |
-| [0014-longest-common-prefix](https://github.com/2eungwoo/coding-test/tree/master/0014-longest-common-prefix) |
-<!---LeetCode Topics End-->
