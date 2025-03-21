@@ -1,8 +1,11 @@
 def solution(myString, pat):
-    answer = 0
-    
-    for i in range(len(myString)-len(pat)+1):
-        if(myString[i:i+len(pat)] == pat):
-            answer+=1
-    
-    return answer
+    count = 0
+    pat_len = len(pat)
+    window = myString[:pat_len]  
+
+    for i in range(len(myString)):
+        window = myString[i:i+pat_len]
+        if(window == pat):
+            count += 1
+            
+    return count
