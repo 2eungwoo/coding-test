@@ -1,32 +1,31 @@
-def largest_rectangle_divide(hist, left, right):
-    if left == right:
-        return hist[left]
+n = int(input())
+hist = [int(input()) for _ in range(n)]
 
-    mid = (left + right) // 2
+stack = []
+answer = 0
 
-    left_area = largest_rectangle_divide(hist, left, mid)
-    right_area = largest_rectangle_divide(hist, mid + 1, right)
-    max_area = max(left_area, right_area)
-
-    l, r = mid, mid + 1
-    height = min(hist[l], hist[r])
-    max_area = max(max_area, height * 2)
-
-    while left < l or r < right:
-        if r < right and (l == left or hist[l - 1] < hist[r + 1]):
-            r += 1
-            height = min(height, hist[r])
+for i in range(n):
+    
+    while stack and hist[stack[-1]] > hist[i]:
+        h = hist[stack.pop()] 
+       
+        if not stack:
+            w = i
         else:
-            l -= 1
-            height = min(height, hist[l])
-        
-        max_area = max(max_area, height * (r - l + 1))
+            w = i - stack[-1] - 1
+            
+        answer = max(answer, h * w)
+    
+    stack.append(i)
 
-    return max_area
+while stack:
+    h = hist[stack.pop()]
+   
+    if not stack:
+        w = n
+    else:
+        w = n - stack[-1] - 1
+    
+    answer = max(answer, h * w)
 
-n = int(input().strip())
-hist = []
-for _ in range(n):
-    hist.append(int(input().strip()))
-
-print(largest_rectangle_divide(hist, 0, n - 1))
+print(answer)
