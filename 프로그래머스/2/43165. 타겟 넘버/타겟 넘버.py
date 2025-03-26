@@ -1,18 +1,21 @@
 def solution(numbers, target):
-    answer = 0
+    
+    memo = {}
     
     def dfs(idx, cur_sum):
-        nonlocal answer
-        
         if(idx == len(numbers)):
             if(cur_sum == target):
-                answer += 1
-            return
+                return 1
+            return 0
         
-        else:
-            dfs(idx + 1, cur_sum + numbers[idx])
-            dfs(idx + 1, cur_sum - numbers[idx])
+        if((idx, cur_sum) in memo):
+            return memo[(idx,cur_sum)]
         
-    dfs(0,0)
-    return answer
+        plus = dfs(idx + 1, cur_sum + numbers[idx])
+        minus = dfs(idx + 1, cur_sum - numbers[idx])
         
+        memo[(idx, cur_sum)] = plus + minus
+        return memo[(idx, cur_sum)]
+        
+    return dfs(0,0)
+    
