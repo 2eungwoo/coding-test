@@ -19,7 +19,7 @@ def solution(n):
             dir = (dir + 1) % 4 # 우->하->좌->상
             nx, ny = x + dx[dir], y + dy[dir]
         
-        if num <= n * n:
+        if(num <= n*n):
             stack.append((nx, ny, num, dir))
     
     return arr
