@@ -1,4 +1,4 @@
-<h1 align="center">Backjoon, LeetCode, Codeup</h1>
+<h1 align="center">Backjoon, LeetCode, Programmers, Codeup</h1>
 
 <p align="center">
   <a href="https://solved.ac/profile/swo98" target="_blank" style="text-decoration: none;">
