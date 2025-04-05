@@ -5,7 +5,7 @@ def solution(maps):
     dx = [1,0,-1,0]
     dy = [0,-1,0,1]
     n,m = len(maps), len(maps[0])
-    dist = [[0] * m for _ in range(n)]
+    dist = [[-1] * m for _ in range(n)]
     
     def bfs(x,y):
         queue = deque([(x,y)])
@@ -14,12 +14,16 @@ def solution(maps):
         while(queue):
             cur_x, cur_y = queue.popleft()
             
+            if(cur_x == n - 1 and cur_y == m - 1):
+                return dist[cur_x][cur_y]
+            
             for i in range(4):
                 nx, ny = cur_x + dx[i], cur_y + dy[i]
-                if(0<= nx < n and 0<= ny < m and maps[nx][ny] == 1 and dist[nx][ny] == 0):
+                if(0<= nx < n and 0<= ny < m and maps[nx][ny] == 1 and dist[nx][ny] == -1):
                     dist[nx][ny] = dist[cur_x][cur_y] + 1
                     queue.append((nx,ny))
+                    
+        return -1
         
-    bfs(0,0)
-    return dist[n-1][m-1] if dist[n-1][m-1] != 0 else -1
-        
+    return bfs(0,0)
+ 
