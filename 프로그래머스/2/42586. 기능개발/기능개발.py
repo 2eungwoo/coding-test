@@ -6,7 +6,7 @@ def solution(progresses, speeds):
     for i in range(len(progresses)):
         work_days.append(math.ceil((100 - progresses[i]) / speeds[i]))
 
-    # print("work days:", work_days)
+    #print("work days:", work_days)
     answer = []
     window = [work_days[0]]
 
@@ -19,6 +19,9 @@ def solution(progresses, speeds):
         else:
             window.append(work_days[i])
             
+       # print("window[%d] = %s" % (i, window))
+
+
     if(window):
         answer.append(len(window))
         
