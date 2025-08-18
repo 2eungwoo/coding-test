@@ -1,27 +1,20 @@
 class Solution {
     public int getCommon(int[] nums1, int[] nums2) {
-        int min = Integer.MAX_VALUE;
-
-        int result = findCommon(nums1, nums2);
-        min = Math.min(result, min);
         
-        return min;
-    }
+        int i = 0;
+        int j = 0;
 
-    private int findCommon(int[] nums1, int[] nums2){
-        Map<Integer, Integer> maps = new HashMap<>(); // val, idx
-        List<Integer> numbers = new ArrayList<>();
-
-        for(int i=0; i<nums1.length; i++){
-            maps.put(nums1[i], i);
-        }
-
-        for(int i=0; i<nums2.length; i++) {
-            if(maps.containsKey(nums2[i])){   
-                numbers.add(nums2[i]);
+        while(i < nums1.length && j < nums2.length) {
+            if(nums1[i] == nums2[j]) {
+                return nums1[i];
+            } 
+            else if(nums1[i] < nums2[j]) {
+                i++;
+            } else {
+                j++;
             }
         }
 
-        return numbers.isEmpty() ? -1 : numbers.get(0);
+        return -1;
     }
 }
