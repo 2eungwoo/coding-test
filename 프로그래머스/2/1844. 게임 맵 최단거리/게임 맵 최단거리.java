@@ -5,37 +5,49 @@ class Solution {
     private final static int[] dy = {1,0,-1,0};
 
     public int solution(int[][] maps) {
+        Queue<State> q = new LinkedList<>();
         
-        int height = maps.length;
         int width = maps[0].length;
+        int height = maps.length;
 
         boolean[][] visited = new boolean[height][width];
+        
         visited[0][0] = true;
-
-        Queue<int[]> q = new LinkedList<>();
-        q.add(new int[] { 0, 0, 1 }); // y,x,distance
+        q.add(new State(0,0,1));
 
         while (!q.isEmpty()) {
-            int[] cur = q.poll();
-            int curY = cur[0];
-            int curX = cur[1];
-            int curDist = cur[2];
+            State cur = q.poll();
 
-            if(curY == height - 1 && curX == width -1) 
-                return curDist;
+            if (cur.y == height - 1 && cur.x == width - 1) {
+                return cur.dist;
+            }
 
             for (int dir = 0; dir < 4; dir++) {
-                int nx = curX + dx[dir];
-                int ny = curY + dy[dir];
+                int nx = cur.x + dx[dir];
+                int ny = cur.y + dy[dir];
 
-                if(nx < 0 || ny < 0 || ny >= height || nx >= width) continue;
-                if(visited[ny][nx] || maps[ny][nx] == 0) continue;
+                if (ny < 0 || nx < 0 || ny >= height || nx >= width)
+                    continue;
+                if (visited[ny][nx] || maps[ny][nx] == 0)
+                    continue;
 
                 visited[ny][nx] = true;
-                q.add(new int[]{ny, nx, curDist + 1});
+                q.add(new State(ny, nx, cur.dist + 1));
             }
         }
-
         return -1;
+
+    }
+
+    private static class State {
+        private final int y;
+        private final int x;
+        private final int dist;
+
+        State(int y, int x, int dist) {
+            this.y = y;
+            this.x = x;
+            this.dist = dist;
+        }
     }
 }
