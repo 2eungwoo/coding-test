@@ -1,7 +1,7 @@
 class Solution {
 
-    private final int[] dx = {1, 0, -1};
-    private final int[] dy = {0, 1, -1};
+    private final int[] dx = {0, 1, -1};
+    private final int[] dy = {1, 0, -1};
 
     public int[] solution(int n) {
         int[][] triangle = new int[n][n];
@@ -17,8 +17,7 @@ class Solution {
         int dir = 0;
 
         while (true) {
-            triangle[curX][curY] = val;
-            val += 1;
+            triangle[curY][curX] = val++;
 
             int nx = curX + dx[dir];
             int ny = curY + dy[dir];
@@ -36,7 +35,7 @@ class Solution {
     }
 
     private boolean isBlocked(int nx, int ny, int n, int[][] triangle) {
-        return nx < 0 || ny < 0 || nx >= n || ny >= n || triangle[nx][ny] != 0;
+        return nx < 0 || ny < 0 || nx >= n || ny >= n || triangle[ny][nx] != 0;
     }
 
     private int[] convertToFlat(int[][] triangle, int n) {
