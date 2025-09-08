@@ -18,6 +18,7 @@ class Main {
             prefix[i][ch]++;
         }
         
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<q; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             char c = st.nextToken().charAt(0);
@@ -26,8 +27,9 @@ class Main {
 
             int idx = c - 'a';
             int answer = prefix[r+1][idx] - prefix[l][idx];
-            System.out.println(answer);
+            sb.append(answer).append("\n");
         }
+        System.out.print(sb);
     }
 }
 
