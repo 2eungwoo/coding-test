@@ -1,37 +1,36 @@
-import java.util.*;
+import java.util.Stack;
 
 class Solution {
     public int solution(int[] numbers, int target) {
-        Stack<State> st = new Stack<>();
-        st.add(new State(0, 0));
-        int count = 0;
+        Stack<State> stack = new Stack<>();
+        stack.push(new State(0, 0));
 
-        while (!st.isEmpty()) {
-            State cur = st.pop();
+        int cnt = 0;
+        while (!stack.isEmpty()) {
+            State cur = stack.pop();
 
-            if (cur.index == numbers.length) {
+            if (cur.depth == numbers.length) {
                 if (cur.acc == target) {
-                    count++;
+                    cnt++;
                 }
-                continue;
             }
 
-            st.push(new State(cur.index + 1, cur.acc + numbers[cur.index]));
-            st.push(new State(cur.index + 1, cur.acc - numbers[cur.index]));
+            else if (cur.depth < numbers.length) {
+                stack.push(new State(cur.acc + numbers[cur.depth], cur.depth + 1));
+                stack.push(new State(cur.acc - numbers[cur.depth], cur.depth + 1));
+            }
+         }
 
-        }
-        
-        return count;
+        return cnt;
     }
 
+    private class State {
+        private final int acc;
+        private final int depth;
 
-    private static class State {
-        private final int index;
-        private final int acc; //accumulated
-
-        State(int index, int acc) {
-            this.index = index;
+        public State(int acc, int depth) {
             this.acc = acc;
+            this.depth = depth;
         }
     }
 }
