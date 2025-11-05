@@ -1,49 +1,37 @@
+import java.util.Map;
 import java.util.HashMap;
 
 class Solution {
     public int solution(String[][] clothes) {
-        HashMap<String, Integer> map = new HashMap<>(); // cloth, count
+
+        Map<String, Integer> map = new HashMap<>();
 
         for (String[] c : clothes) {
-            map.put(c[1], map.getOrDefault(c[1], 0) + 1);
+            String clothesType = c[1];
+            map.put(clothesType, map.getOrDefault(clothesType, 0) + 1);
         }
-
+        
         int sum = 1;
-        for (int c : map.values()) {
-            sum *= (c + 1);
+        for (int v : map.values()) {
+            sum *= (v + 1);
         }
 
-        return sum - 1;
+        return sum - 1; // 안입음으로만 조합된 경우도 포함됐으므로 빼야함
     }
 }
 
-// 중복해서 못 입는다고 set을 쓰면
-// 하나의 종류에 대해 다른 의상은 아예 배제되어버림
-// 의상 종류에 따라 의상 이름이 달라지고 세어야 하는 것은 의상 이름이므로
-// 의상 종류를 key로 두고 그 종류에 맞는 의상 이름이 몇개냐를 활용하는 자료구조를 쓴다
-// ==> HashMap<종류,개수>
+// 단독착용, 조합착용
 
+// key에 매핑된 value는 옷 타입의 개수니까 
+// 단독 착용을 고려하면 독립적으로 다 더해야됨
+// 조합 착용의 경우
+// value간의 곱이 됨
 
-// 그럼 조합 가능한 총 개수는 어케 세느냐?
-// 1. (단독착용) key에 해당하는 value 몇개인지
-// 2. (조합착용) 각 종류의 개수 끼리의 곱  
 /*
-얼굴	동그란 안경, 검정 선글라스
-상의	파란색 티셔츠
-하의	청바지
-겉옷	긴 코트
-
-에서, 2개 x 1개 x 1개 x 1개 
-
-까지만하면 무조건 모두 입는 경우니까
-안입는 경우도 포함해서 세면 단독착용까지 한꺼번에 세어지므로
-
 얼굴	동그란 안경, 검정 선글라스, 안입음
 상의	파란색 티셔츠, 안입음
 하의	청바지, 안입음
-겉옷	긴 코트, 안입음
+겉옷	긴 코트, 안입읍
 
-이렇게 해서
-3개 x 2개 x 2개 x 2개 
-에서 모두 안입는 경우 -1 개
+이렇게 전체를 고쳐놓고 조합을 세면 쉽고 정확하다.
  */
