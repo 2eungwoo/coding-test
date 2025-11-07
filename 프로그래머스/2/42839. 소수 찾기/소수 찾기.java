@@ -1,89 +1,68 @@
+import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 
 class Solution {
     public int solution(String numbers) {
-        // 1. 숫자 조합을 만든다. 
-        // - 조합된 숫자를 담을 때 set 사용 -> 그래야 조합 후 중복된거 뺴고 넣음
-        HashSet<Integer> numberSet = new HashSet<>();
-
-        // - 각 숫자가 조합에 쓰였는지 추적
+        // 1. 숫자 조합 + set에 저장
+        Set<Integer> numberSet = new HashSet<>();
+        
+        String init = "";
         boolean[] used = new boolean[numbers.length()];
-
-        // 1. 숫자 조합을 만든다.
-        generate("", numbers.toCharArray(), used, numberSet);
-
-        // 2. set 안의 숫자들이 소수인지 판별한다. 
-        // - 소수면 count++
-        int count = 0;
+        generateCombination(init, numbers.toCharArray(), used, numberSet);
+        
+        // 2. 소수 판별 + 맞으면 cnt++
+        int cnt = 0;
         Iterator<Integer> it = numberSet.iterator();
-
-        while (it.hasNext()) {
+        
+        while(it.hasNext()) {
             int num = it.next();
-            if (isPrime(num)) {
-                count++;
+            if(isPrime(num)) {
+                cnt++;
             }
         }
-
-        return count;
+        
+        return cnt;
     }
     
-    private void generate(String cur, char[] others, boolean[] used, HashSet<Integer> numberSet) {
-        // 1. 현재 상태 처리
-        // - 첫 수행 상태 : "" -> 조합에 넣어야됨 skip해야됨
-        // - n+1 수행 상태 : "n" -> set에 넣음
-        if (!cur.equals("")) {
-            numberSet.add(Integer.valueOf(cur));
+    private void generateCombination(
+        String cur, 
+        char[] others, 
+        boolean[] used,
+        Set<Integer> numberSet){
+        
+        // 현재 값 처리 -> 조합된 cur를 set에 넣음
+        if(!cur.equals("")) {
+              numberSet.add(Integer.valueOf(cur));
         }
- 
-        // 2. 다음 상태 처리 ( 조합 진행 )
-        // - 현재꺼에 조합 : cur + others[i]
-        // - 그러고나면 이제 남은 숫자들(others)는 ? 
-        // - others 다 돌때까지만 재귀호출하므로 종료조건 필요 없음
-        for (int i = 0; i < others.length; i++) {
-            if (!used[i]) {
+        
+        // 다음 값 처리 -> 현재에다가 아직 안쓴거를 조합함
+        // 아직 안쓴거는 others의 index와 used의 index로 조절
+        for(int i=0; i<others.length; i++) {
+            if(!used[i]) {
                 used[i] = true;
-                generate(cur + others[i], others, used, numberSet);
+                generateCombination(cur + others[i], others, used, numberSet);
                 used[i] = false;
             }
         }
+        
     }
     
     private boolean isPrime(int num) {
-        // 0,1은 소수 아님
-        if (num == 0 || num == 1) {
+        if(num == 0 || num == 1) {
             return false;
         }
-
-        // 제곱근 까지만 돌렸을 때 나눠떨어지면 소수 아님
+        
         int sqrtNum = (int) Math.sqrt(num);
-        for (int i = 2; i <= sqrtNum; i++) {
-            if (num % i == 0) {
+        for(int i=2; i<=sqrtNum; i++) {
+            if(num % i == 0) {
                 return false;
             }
         }
         return true;
     }
-
-
-
 }
 
-// 17이 주어지면 1, 7, 17, 71 이렇게 다 만들어보고 소수인지 판별해야됨
-// 주어진 입력으로 만들 수 있는 모든 조합을 생각해봐야되니까 완전탐색
-// 이 떄 중복 숫자는 두 번 탐색하는 문제가 있으므로 
-// 판별할 대상을 set에 넣어서 중복 제거하고 완전탐색 진행
-
-// 완전 탐색으로 숫자를 조합해서 그게 소수인지 판별해서 count
-// 그러면 같은 숫자가 들어오면 중복해서 카운트 할 수 있음
-// set에 조합된 숫자를 넣어서 판별하는 방식으로 중복를 제거함 -> 판별할 루프 자료구조가 set
-
-// 011이랑 11이랑 같은 숫자로 판단해야되므로 String으로 받은 다음 number로 형변환해주기
-
-// 완전 탐색 방법:
-// 조합 : 현재 숫자 + 다음 숫자
-/*
-    for(int i=0~n) { // n: 조합 아직 안한 나머지(others) 숫자 길이
-        generate(cur + nums[i], others);
-    }
- */
+// 주어진 문자열로 조합 가능한 숫자를 다 만들어본 다음 소수인지 하나하나 판별해야한다.
+// 011의 경우, 1,1이 다른 인덱스에 위치하지만 같은 숫자값이기 때문에 중복 판별의 여지가 있으므로 set에 담아서 중복된 값은 배제하도록 한다.
+// 1.숫자 다 조합하기 -> 2. 소수판별하기 -> 3. 맞으면 cnt++하기
