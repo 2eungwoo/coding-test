@@ -1,14 +1,32 @@
+// class Solution {
+//     public boolean containsDuplicate(int[] nums) {
+//         Arrays.sort(nums); // O(nlogn)
+
+//         int len = nums.length; 
+//         for(int i=1; i<len; i++) { // O(n)
+//             if(nums[i-1] == nums[i]) { 
+//                 return true;
+//             } 
+//         }
+
+//         return false;
+//     }
+// }
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Arrays.sort(nums);
+        Map<Integer, Integer> numberMap = new HashMap<>(); // <val, count>
+        for(int n : nums) {
+            numberMap.put(n, numberMap.getOrDefault(n,0) + 1);
+        }
 
-        int len = nums.length;
-        for(int i=1; i<len; i++) {
-            if(nums[i-1] == nums[i]) {
+        for(int n : numberMap.values()) {
+            if(n > 1) {
                 return true;
-            } 
+            }
         }
 
         return false;
+        
     }
 }
