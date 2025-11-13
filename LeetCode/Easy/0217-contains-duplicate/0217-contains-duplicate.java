@@ -13,20 +13,34 @@
 //     }
 // }
 
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-        Map<Integer, Integer> numberMap = new HashMap<>(); // <val, count>
-        for(int n : nums) {
-            numberMap.put(n, numberMap.getOrDefault(n,0) + 1);
-        }
+// class Solution {
+//     public boolean containsDuplicate(int[] nums) {
+//         Map<Integer, Integer> numberMap = new HashMap<>(); // <val, count>
+//         for(int n : nums) { // O(n)
+//             numberMap.put(n, numberMap.getOrDefault(n,0) + 1);
+//         }
 
-        for(int n : numberMap.values()) {
-            if(n > 1) {
+//         // O(n)
+//         for(int n : numberMap.values()) {
+//             if(n > 1) {
+//                 return true;
+//             }
+//         }
+
+//         return false;
+        
+//     }
+// }
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {  
+        Set<Integer> numberSet = new HashSet<>();
+
+        for(int n : nums) {
+            if(!numberSet.add(n)) {
                 return true;
             }
         }
-
         return false;
-        
     }
 }
