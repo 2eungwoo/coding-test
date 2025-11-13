@@ -3,6 +3,7 @@ import java.util.Stack;
 class Solution {
     public int[] solution(int[] prices) {
         Stack<Integer> stack = new Stack<>();
+        
         int len = prices.length;
         int[] result = new int[len];
 
@@ -28,26 +29,14 @@ class Solution {
 }
 
 /*
-    O(n^2)로 푸는게 직관적으로 떠오르지만
-    10만x10만 이므로 안됨
+    p[i]랑 p[k>i] 랑 비교했을 때 값이 작아지면 떨어진거임
+    그러면 idx:k - idx:i 값을 result[]에 저장
+    만약 끝까지 떨어지지않은 p[i]는
+    p.length - idx:i 해서 저장
 
-    n^2으로 돌지 않으면서 요소를 쭉 스캔할 수 있는건 스택임
-    반복문 내에서 현재요소에 대한 비교만 계속 하면 되므로
-    현재 요소를 스택에 넣고(top) 이랑 prices[i]랑 비교하면 된다. 
-    그럼 for한번 내에서 풀스캔 가능
-
-    시점을 알아야하므로 스택에는 idx를 넣고 
-    값은 stack 요소가 인덱스니까 prices[stack.peek()] 로 뽑으면 되니까 idx만 넣으면 됨
-
-    top보다 작은 애가 나오면 떨어진거니까 그때의 idx랑 반복자i값이랑 차이를 빼면
-    두 거리가 나오니 이걸 result로 쓴다.
-
-    --- 
-
-    근데 끝까지 가격이 안떨어진애들이 있을거임
-    그럼 얘들은 스택에 계속 남아있다.
-    얘내는 마지막idx까지의 거리만 구해서 넣어주면 됨 
-    그러면 동시에 마지막 요소도 처리가 됨
-    0based니까 len-1이랑 빼줘야됨
-
+    근데 문제는 가격마다 그 시점의 인덱스를 알고있어야됨
+    그리고 p[i]를 i++하면서 계속 반복비교하면 O(n^2)인데 n=10만이니까 안됨
+    stack으로 idx를 저장하도록 해서 비교대상을 stack에 넣고,
+    값이 떨어지면 result[]에 넣고 pop
+    그러면 끝까지 안떨어진애들은 stack에 남아있을거니까 따로 후처리
 */
