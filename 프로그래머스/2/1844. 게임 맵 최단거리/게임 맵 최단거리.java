@@ -1,19 +1,22 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
+
 class Solution {
-    private static int[] dx = {0,1,0,-1};
-    private static int[] dy = {1,0,-1,0};
+    private static int dx[] = {0,1,0,-1};
+    private static int dy[] = {1,0,-1,0};
 
     public int solution(int[][] maps) {
         Queue<State> queue = new LinkedList<>();
-        int height = maps.length; 
+        int height = maps.length;
         int width = maps[0].length;
-        boolean[][] visited = new boolean[height][width];
-        
-        visited[0][0] = true;
-        queue.offer(new State(0, 0, 1));
 
+        State init = new State(0, 0, 1);
+        queue.offer(init);
+        
+        boolean[][] visited = new boolean[height][width];
+        visited[0][0] = true;
+        
         while (!queue.isEmpty()) {
             State cur = queue.poll();
 
@@ -28,30 +31,30 @@ class Solution {
                 if (ny < 0 || ny >= height || nx < 0 || nx >= width) {
                     continue;
                 }
-            
                 if (!visited[ny][nx] && maps[ny][nx] == 1) {
                     queue.offer(new State(ny, nx, cur.distance + 1));
                     visited[ny][nx] = true;
                 }
             }
         }
-        
+
         return -1;
+
     }
 
-    public class State {
+
+    private class State {
         private final int y;
         private final int x;
         private final int distance;
-        
-        public State(final int y, final int x, final int distance) {
+
+        private State(final int y, final int x, final int distance) {
             this.y = y;
             this.x = x;
             this.distance = distance;
         }
     }
 }
-
 /*
-    0:벽, 1:길
+    추적해야될 요소: <x,y,distance>
 */
