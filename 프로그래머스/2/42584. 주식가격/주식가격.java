@@ -3,7 +3,6 @@ import java.util.Stack;
 class Solution {
     public int[] solution(int[] prices) {
         Stack<Integer> stack = new Stack<>();
-        
         int len = prices.length;
         int[] result = new int[len];
 
@@ -18,7 +17,7 @@ class Solution {
             }
             stack.push(i);
         }
-
+        
         while (!stack.isEmpty()) {
             int curIdx = stack.pop();
             result[curIdx] = len - curIdx - 1;
@@ -27,16 +26,24 @@ class Solution {
         return result;
     }
 }
-
 /*
-    p[i]랑 p[k>i] 랑 비교했을 때 값이 작아지면 떨어진거임
-    그러면 idx:k - idx:i 값을 result[]에 저장
-    만약 끝까지 떨어지지않은 p[i]는
-    p.length - idx:i 해서 저장
+    p[i]를 i++하면서 prices 요소를 전부 비교하면 O(n^2) 걸려서 안됨
+    스택을 써서 하나의 상태를 가지고 p를 돌면서 1회 스캔만으로 비교시키면 O(n)
+    
+    인덱스 정보를 알아함
+    
+    스택에 <가격값,인덱스> 이렇게 넣을 필요 없이
+    스택에 인덱스를 넣고 stack[p[i]] 이렇게 해서 인덱스만 추적하도록 함
 
-    근데 문제는 가격마다 그 시점의 인덱스를 알고있어야됨
-    그리고 p[i]를 i++하면서 계속 반복비교하면 O(n^2)인데 n=10만이니까 안됨
-    stack으로 idx를 저장하도록 해서 비교대상을 stack에 넣고,
-    값이 떨어지면 result[]에 넣고 pop
-    그러면 끝까지 안떨어진애들은 stack에 남아있을거니까 따로 후처리
+    만약 반복에서 p[stack.peek()] < p[i] 면 끝까지 안떨어졌음
+    단 한번도 안떨어진 애들이 계속 있으므로 가격이 떨어진적 있는 애들은 pop쳐서 바로 curIdx 담아주고
+    i++ 되면서 계속 이전에 안떨어진 가격애들이랑 비교
+    그럼 스택에 계속 남아있음 -> 따로 후처리 해줘야됨
+    
+    p[stack.peek()] > p[i] 면 떨어졌음, 그 즉시 stack.top의 index를 저장
+    한 번이라도 떨어졌으면 바로 idx 넣어줘야함
+    curIdx = i - stack.top.idx
+
+    i++ 마다 스택에 push해서 새로운 요소를 비교대상으로 갱신
+
 */
