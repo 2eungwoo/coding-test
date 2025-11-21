@@ -1,17 +1,22 @@
 class Solution {
     public int maxArea(int[] height) {
+
         int left = 0;
         int right = height.length - 1;
-        int water = 0;
-        int max = Integer.MIN_VALUE;
 
+        int water = 0;
+        int w = 0;
+        int h = 0;
+        int max = Integer.MIN_VALUE;
         while(left < right) {
-            int w = right - left;
-            int h = Math.min(height[left], height[right]);
+            int LHeight = height[left];
+            int RHeight = height[right];
+            w = right - left;
+            h = Math.min(LHeight, RHeight);
             water = w * h;
             max = Math.max(water, max);
 
-            if(height[left] < height[right]) {
+            if(LHeight < RHeight) {
                 left++;
             } else {
                 right--;
@@ -20,15 +25,20 @@ class Solution {
 
         return max;
     }
-   
 }
 
+/*
+    물의 높이 구하려면
+    양 쪽의 기둥을 보고 그 중 작은쪽을 기준으로 height가 돼서 물이 찬다
+    width는 두 막대간의 idx차이
+    
+    w = height[right] - height[left]
+    h = Math.min(height[left], height[right])
+    water = w * h
 
-// 물 높이를 구한다. 가로 x 세로
-// 가로는 right - left
-// 세로는 height[i]
-
-// height[i]가 관건인데, 이게 두개가 있어야되고 (height[left], height[right]) 중에서 길이가 작은 쪽
-// 기준으로 물이 찬다.
-// 그래서 작은쪽에 변화를 주면서(two-pointer) water volume을 게속 갱신/비교 한다음
-// 비교 다 마치면 그떄의 max변수에 있는 값을 리턴
+    하나하나 다 찾아줄 수 없으니 투포인터로 n스캔만에 찾아줄거임
+    
+    height[left] < height[right] 면, 물 구해준다음에
+    다음걸로 비교 이어나가야하므로 작은쪽인 left를 이동(++)
+    반대면 right--
+*/
