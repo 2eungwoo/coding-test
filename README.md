@@ -6,6 +6,7 @@
   </a>
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" alt="Python" width="80"/>
   <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white" alt="Java" width="42"/>
+  <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Typescript&logoColor=white" alt="Java" width="65"/>
 </p>
 
 <!--
