@@ -4,33 +4,20 @@ class Solution {
     public boolean isValid(String s) {
         
         Stack<Character> stack = new Stack<>();
-        int len = s.length();
+        Map<Character, Character> map = Map.of(
+            ')','(',
+            ']','[',
+            '}','{'
+        );
 
         for(char c : s.toCharArray()) {
-            if(c == '(' || c == '[' || c == '{') {
+            if(map.containsKey(c)) { // when close
+                if(stack.isEmpty() || stack.pop() != map.get(c)) {
+                    return false;
+                }
+            }
+            else { // when open
                 stack.push(c);
-            } else {
-                if(c == ')') {
-                    if(!stack.isEmpty() && stack.peek() == '(') {
-                        stack.pop();
-                    } else {
-                        return false;
-                    }
-                }
-                if(c == ']') {
-                    if(!stack.isEmpty() && stack.peek() == '[') {
-                        stack.pop();
-                    } else {
-                        return false;
-                    }
-                }
-                if(c == '}') {
-                    if(!stack.isEmpty() && stack.peek() == '{') {
-                        stack.pop();
-                    } else {
-                        return false;
-                    }
-                }
             }
         }
 
