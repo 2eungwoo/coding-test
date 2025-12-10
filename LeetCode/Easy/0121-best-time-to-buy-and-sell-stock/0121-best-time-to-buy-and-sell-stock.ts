@@ -1,25 +1,25 @@
-function maxProfit(prices: number[]): number {
+function maxProfit(prices: number[]) : number {
 
-    let stack: number[] = [];
-    const len = prices.length;
-    let max = -1;
+    let min: number = Infinity;
+    let max: number = 0; 
 
-    for (let i = 0; i < len; i++) {
-        if (stack.length === 0) {
-            stack.push(prices[i]);
+    for(const p of prices) {
+        if(p < min) {
+            min = p;
         } else {
-            if (stack[stack.length - 1] > prices[i]) {
-                max = Math.max(max, prices[i] - stack[stack.length - 1]);
-                stack.push(prices[i]);
-            } else {
-                max = Math.max(max, prices[i] - stack[stack.length - 1]);
-            }
+            max = Math.max(max, p - min);
         }
     }
 
-    if (max === -1) {
-        return 0;
-    } else {
-        return max;
-    }
+    return max;
 }
+
+/*
+    최신 상태만 알면 되니까 스택 쓴건데
+    마찬가지로 이런 이유라면 상수값만으로 컨트롤 가능
+    해야되는게 prices[] 에서 최소가격이랑
+    한 번 스캔 안에서 게속 max값 비교/갱신 하면 됨 
+
+    근데 이익이 없으면 0을 반환해야되니까
+    갱신이 안된 상황에 대비해서 max 초기 0 그대로 리턴하면 됨
+*/
