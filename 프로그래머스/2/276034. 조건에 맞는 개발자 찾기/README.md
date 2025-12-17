@@ -1,6 +1,6 @@
 # [level 2] 조건에 맞는 개발자 찾기 - 276034 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/276034) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/276034?language=mysql) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 18일 18:49:31
+2025년 12월 17일 18:26:04
 
 ### 문제 설명
 
