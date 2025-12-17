@@ -1,12 +1,28 @@
 -- 코드를 입력하세요
-# SELECT A.ANIMAL_ID, A.NAME
-# FROM ANIMAL_OUTS A
-# WHERE A.ANIMAL_ID NOT IN (SELECT ANIMAL_ID FROM ANIMAL_INS WHERE ANIMAL_ID IS NOT NULL) 
-# ORDER BY A.ANIMAL_ID;
+# 입양 간 기록은 있는데
+# 보호소에 들어온 기록이 없는
+# 동물ID, 이름 
 
-SELECT AOUT.ANIMAL_ID, AOUT.NAME
-FROM ANIMAL_OUTS AOUT
-LEFT JOIN ANIMAL_INS AIN
-  ON AOUT.ANIMAL_ID = AIN.ANIMAL_ID
-WHERE AIN.ANIMAL_ID IS NULL
-ORDER BY AOUT.ANIMAL_ID;
+# ANIMAL_OUTS 에서 DATETIME 이게 있는데
+# ANIMAL_INS 에서 DATETIME 이게 없는
+select O.ANIMAL_ID, O.NAME
+from ANIMAL_OUTS O
+    left join ANIMAL_INS I on O.ANIMAL_ID = I.ANIMAL_ID
+where I.DATETIME is null
+order by O.ANIMAL_ID asc;
+
+
+
+# # ANIMAL_ID OUTS에는 있고 INS에는 없는
+# select A.ANIMAL_ID, A.NAME
+# from ANIMAL_OUTS A
+# where A.ANIMAL_ID not in (
+#     select ANIMAL_ID
+#     from ANIMAL_INS
+#     where ANIMAL_ID is not null
+# )
+# order by A.ANIMAL_ID asc;
+
+
+
+
