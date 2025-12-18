@@ -1,32 +1,43 @@
+// stack
 import java.util.Stack;
 
 public class Solution {
     public int[] solution(int[] arr) {
         Stack<Integer> stack = new Stack<>();
-        int len = arr.length;
 
-        for(int i=0; i<len; i++) {
-            if(!stack.isEmpty() && stack.peek() == arr[i]) {
+        for(int n : arr) {
+            if(!stack.isEmpty() && stack.peek() == n) {
                 continue;
-            }
-            stack.push(arr[i]);
+            } 
+            stack.push(n);
         }
 
         return stack.stream().mapToInt(i -> i).toArray();
-    }   
+    }
 }
 
-/*
-    중복을 제거하되, 순서를 유지해야한다.
-    단순 set에 넣으면 안된다.
-    <val,idx> 로 놓고 정렬을한다? 
-    nlogn이면 1000000000000 이라서 안됨
+// 직전 중복만 보면 되므로
+// 가장 최신 상태만 가지고 있는 스택 성질을 사용
+// arr 쭉 보면서 push하는데 stack.peek랑 비교해서 분기하면 됨
+// peek랑 arr[i]랑 같으면 skip
 
-    연속적으로 나타나는 숫자만 제거하면 된다.
-    따라서 첫 1이랑 끝1 이 있을 때 제거할 필요가 없고
-    첫1이랑 바로 다음1이 나온 경우에만 그 1을 스킵하면 됨
-    
-    스택을 써서 요소를 돌면서 
-    현재 탑에 있으면 스킵
-    혀재 탑에 없으면 푸쉬
-*/
+// non-stack
+// import java.util.List;
+// import java.util.ArrayList;
+
+// public class Solution {
+//     public int[] solution(int[] arr) {
+//          List<Integer> result = new ArrayList<>();
+
+//         int prev = -1; // 걍 arr에 없는 아무 값
+//         for(int n : arr) {
+//             if(n != prev) {
+//                 result.add(n);
+//                 prev = n;
+//             }
+//         }
+
+//         return result.stream().mapToInt(i -> i).toArray();
+//     }
+// }
+
