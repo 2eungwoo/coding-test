@@ -1,5 +1,6 @@
 /* Write your PL/SQL query statement below */
 
+-- 559ms
 delete from Person P1
 where exists (
     select 1
@@ -8,7 +9,7 @@ where exists (
         and P1.id > P2.id
 )
 
-
+-- 981ms
 -- delete from Person
 -- where id in (
 --     select P1.id
